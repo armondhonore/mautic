@@ -1,0 +1,26 @@
+application:
+  name: mautic
+  pods:
+  - name: app
+    image: mautic/mautic:v5-apache
+    path: /
+    servicePorts:
+    - 80
+    vars:
+      MAUTIC_DB_HOST: mysql.pod
+      MAUTIC_DB_USER: mautic
+      MAUTIC_DB_PASSWORD: mautic
+      MAUTIC_DB_NAME: mautic
+  - name: mysql
+    image: mysql:8.0
+    servicePorts:
+    - 3306
+    vars:
+      MYSQL_DATABASE: mautic
+      MYSQL_USER: mautic
+      MYSQL_PASSWORD: mautic
+      MYSQL_ROOT_PASSWORD: rootpassword
+    volumes:
+    - name: mautic-db
+      mountPath: /var/lib/mysql
+      size: 10Gi
