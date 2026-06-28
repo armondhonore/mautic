@@ -2,12 +2,12 @@ application:
   name: mautic
   pods:
   - name: app
-    image: mautic/mautic:v5-apache
+    image: mautic/mautic:5-apache
     path: /
     servicePorts:
     - 80
     vars:
-      MAUTIC_DB_HOST: mysql.pod
+      MAUTIC_DB_HOST: mautic-mysql.pod
       MAUTIC_DB_USER: mautic
       MAUTIC_DB_PASSWORD: mautic
       MAUTIC_DB_NAME: mautic
