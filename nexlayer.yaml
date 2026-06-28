@@ -2,7 +2,7 @@ application:
   name: mautic
   pods:
   - name: app
-    image: mautic/mautic:5-apache
+    image: mirror.gcr.io/mautic/mautic:5-apache
     path: /
     servicePorts:
     - 80
@@ -12,7 +12,7 @@ application:
       MAUTIC_DB_PASSWORD: ${MYSQL_PASSWORD}
       MAUTIC_DB_NAME: mautic
   - name: mysql
-    image: mysql:8.0
+    image: mirror.gcr.io/library/mysql:8.0
     servicePorts:
     - 3306
     vars:
