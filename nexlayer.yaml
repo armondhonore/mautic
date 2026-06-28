@@ -9,7 +9,7 @@ application:
     vars:
       MAUTIC_DB_HOST: mysql.pod
       MAUTIC_DB_USER: mautic
-      MAUTIC_DB_PASSWORD: mautic
+      MAUTIC_DB_PASSWORD: ${MYSQL_PASSWORD}
       MAUTIC_DB_NAME: mautic
   - name: mysql
     image: mysql:8.0
@@ -18,8 +18,8 @@ application:
     vars:
       MYSQL_DATABASE: mautic
       MYSQL_USER: mautic
-      MYSQL_PASSWORD: mautic
-      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     volumes:
     - name: mautic-db
       mountPath: /var/lib/mysql
